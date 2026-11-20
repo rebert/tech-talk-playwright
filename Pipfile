@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+# Browser automation — the star of the show
+playwright = "*"
+
+# Notebook environment
+jupyterlab = "*"
+ipykernel = "*"
+
+# Present the notebook as reveal.js slides inside JupyterLab ("Render as Slideshow")
+jupyterlab-rise = "*"
+
+[dev-packages]
+# Optional: only needed if you also want to demo test automation with pytest
+pytest = "*"
+pytest-playwright = "*"
+
+[requires]
+python_version = "3.12"
+
+[scripts]
+# pipenv run setup-browsers   → downloads the Chromium binaries Playwright needs
+setup-browsers = "playwright install chromium"
+# pipenv run present          → starts JupyterLab
+present = "jupyter lab playwright_presentation.ipynb"
